@@ -1,0 +1,18 @@
+.todo-list-container {
+  padding: 20px;
+}
+
+.todo-list-header {
+  font-size: 26px;
+  font-weight: bold;
+}
+ 
+.todo-list-item {
+  margin-top: 15px;
+}
+
+.todo-list-item-status {
+  border: none;
+  background-color: none;
+  outline: none;
+}
