@@ -1,0 +1,20 @@
+.header-container {
+  height: 50px;
+}
+
+.header-container .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 50px;
+  background-color: rgb(252, 252, 252);
+  border-bottom: 1px solid darkturquoise;
+}
+
+.header-container .header .header-title {
+  color: mediumturquoise;
+  padding: 10px 20px;
+  font-size: 20px;
+}

@@ -1,14 +1,15 @@
 import React from 'react';
 
-import './todo-list.css';
+import './todoList.css';
 
-import TodoItem from './todo-item';
+import TodoItem from '../todoItem';
 
 export default class TodoList extends React.Component {
   constructor() {
     super();
 
     this.state = {
+      name: 'Go shopping 🛒',
       todos: [
         {
           id: 1,
@@ -33,7 +34,7 @@ export default class TodoList extends React.Component {
   render() {
     return (
       <div className="todo-list-container">
-        <div className="todo-list-header">Your todos</div>
+        <div className="todo-list-header">{this.state.name}</div>
         {this.state.todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} toggleIsDone={(id) => this.toggleIsDone(id)}/>
         ))}

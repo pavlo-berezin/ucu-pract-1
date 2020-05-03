@@ -1,0 +1,17 @@
+.sidebar {
+  width: 240px;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: rgb(244, 244, 244);
+  border-right: 1px solid paleturquoise;
+}
+
+.sidebar .sidebar-title {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.sidebar .sidebar-item {
+  margin-bottom: 10px;
+  cursor: pointer;
+}

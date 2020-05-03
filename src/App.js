@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import TodoList from './todo-list';
+import Dashboard from './components/dashboard';
+import Header from './components/header';
 
 function App() {
   return (
-    <div>
-      <TodoList></TodoList>
-    </div>
+    <>
+      <Header></Header>
+      <Dashboard></Dashboard>
+    </>
   );
 }
 
