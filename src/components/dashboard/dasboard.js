@@ -49,8 +49,12 @@ export default class Dashboard extends React.Component {
     }));
   }
 
+  getListById(listId) {
+    return this.state.todoLists.find(list => list.id === listId);
+  }
+
   render() {
-    const selectedList = this.state.todoLists.find((e) => e.id === this.state.selected);
+    const selectedList = this.getListById(this.state.selected);
     return (
       <main className='dashboard'>
         <Sidebar lists={this.state.todoLists}></Sidebar>
