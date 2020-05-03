@@ -1,6 +1,12 @@
 .todo-list-item {
   margin-top: 15px;
   cursor: pointer;
+  display: flex;
+  align-items: baseline;
+}
+
+.todo-list-item span[role="img"] {
+  margin-right: 5px;
 }
 
 .todo-list-item-status {
