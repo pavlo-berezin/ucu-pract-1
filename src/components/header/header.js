@@ -10,6 +10,10 @@ const Header = () => (
           🎯
         </span>
       </section>
+      <nav>
+        <a>Dashboard</a>
+        <a>About</a>
+      </nav>
     </header>
   </div>
 );
