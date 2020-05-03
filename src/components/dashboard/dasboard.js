@@ -1,12 +1,12 @@
 import React from 'react';
 import TodoList from '../todoList';
-import Sidebar from '../sidebar'
+import Sidebar from '../sidebar';
 
-import './dashboard.css'
+import './dashboard.css';
 
 export default class Dashboard extends React.Component {
   state = {
-    selected: 1,
+    selected: 2,
     todoLists: [
       {
         name: 'Go shopping 🛒',
@@ -30,12 +30,12 @@ export default class Dashboard extends React.Component {
         todos: [
           {
             id: 4,
-            text: 'Todo something',
+            text: 'Todo house something',
             isDone: true,
           },
           {
             id: 5,
-            text: 'Todo else',
+            text: 'Todo house else',
             isDone: false,
           },
         ],
@@ -43,13 +43,19 @@ export default class Dashboard extends React.Component {
     ],
   };
 
+  updateList(listId, update) {
+    this.setState((state) => ({
+      todoLists: state.todoLists.map((list) => (list.id === listId ? { ...list, ...update } : list)),
+    }));
+  }
+
   render() {
-    const selectedList = this.state.todoLists.find(e => e.id === this.state.selected);
+    const selectedList = this.state.todoLists.find((e) => e.id === this.state.selected);
     return (
-      <main className="dashboard">
+      <main className='dashboard'>
         <Sidebar lists={this.state.todoLists}></Sidebar>
-        <TodoList list={selectedList}></TodoList>
+        <TodoList list={selectedList} updateList={(l, u) => this.updateList(l, u)}></TodoList>
       </main>
-    )
+    );
   }
 }
