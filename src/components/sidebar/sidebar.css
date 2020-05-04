@@ -15,3 +15,12 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+.sidebar .sidebar-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar .sidebar-item a.selected {
+  font-size: 20px;
+}

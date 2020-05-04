@@ -4,9 +4,10 @@ import Sidebar from '../sidebar';
 
 import './dashboard.css';
 
+import { Route } from 'react-router-dom';
+
 export default class Dashboard extends React.Component {
   state = {
-    selected: 2,
     todoLists: [
       {
         name: 'Go shopping 🛒',
@@ -50,15 +51,19 @@ export default class Dashboard extends React.Component {
   }
 
   getListById(listId) {
-    return this.state.todoLists.find(list => list.id === listId);
+    return this.state.todoLists.find((list) => list.id == listId);
   }
 
   render() {
-    const selectedList = this.getListById(this.state.selected);
     return (
       <main className='dashboard'>
         <Sidebar lists={this.state.todoLists}></Sidebar>
-        <TodoList list={selectedList} updateList={(l, u) => this.updateList(l, u)}></TodoList>
+        <Route
+          path='/list/:id'
+          render={(props) => (
+            <TodoList list={this.getListById(props.match.params.id)} updateList={(l, u) => this.updateList(l, u)} />
+          )}
+        ></Route>
       </main>
     );
   }

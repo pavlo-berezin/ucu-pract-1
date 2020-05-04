@@ -27,4 +27,10 @@
 .header-container .header nav a {
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.header-container .header nav a.selected {
+  font-size: 20px;
 }
