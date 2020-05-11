@@ -1,0 +1,102 @@
+{
+  "todoLists": [
+    {
+      "name": "Go shopping 🛒",
+      "id": 1,
+      "todos": [
+        {
+          "id": 1,
+          "text": "Todo something",
+          "isDone": true
+        },
+        {
+          "id": 2,
+          "text": "Todo else",
+          "isDone": true
+        },
+        {
+          "id": 1589182178942,
+          "text": "New todo",
+          "isDone": false
+        },
+        {
+          "id": 1589182184843,
+          "text": "123",
+          "isDone": false
+        },
+        {
+          "id": 1589183005819,
+          "text": "123",
+          "isDone": false
+        }
+      ]
+    },
+    {
+      "name": "Home stuff 🏠",
+      "id": 2,
+      "todos": [
+        {
+          "id": 4,
+          "text": "Todo house something",
+          "isDone": true
+        },
+        {
+          "id": 5,
+          "text": "Todo house else",
+          "isDone": false
+        }
+      ]
+    },
+    {
+      "name": "123",
+      "todos": [],
+      "id": 3
+    },
+    {
+      "name": "45",
+      "todos": [],
+      "id": 4
+    },
+    {
+      "name": "12",
+      "todos": [
+        {
+          "id": 1589182570070,
+          "text": "123",
+          "isDone": false
+        },
+        {
+          "id": 1589182570604,
+          "text": "123",
+          "isDone": false
+        },
+        {
+          "id": 1589182571110,
+          "text": "4",
+          "isDone": false
+        },
+        {
+          "id": 1589182571423,
+          "text": "a",
+          "isDone": false
+        },
+        {
+          "id": 1589182571693,
+          "text": "sd",
+          "isDone": false
+        },
+        {
+          "id": 1589182572026,
+          "text": "asd",
+          "isDone": false
+        },
+        {
+          "id": 1589182572904,
+          "text": "asd",
+          "isDone": false
+        }
+      ],
+      "id": 5
+    }
+  ]
+}
