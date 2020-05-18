@@ -5,15 +5,22 @@ import About from './components/about';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import configStore from './store';
+
+const store = configStore();
+
 function App() {
   return (
-    <BrowserRouter>
-      <Header></Header>
-      <Switch>
-        <Route path='/about' component={About} />
-        <Route path='/' component={Dashboard} />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header></Header>
+        <Switch>
+          <Route path='/about' component={About} />
+          <Route path='/' component={Dashboard} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

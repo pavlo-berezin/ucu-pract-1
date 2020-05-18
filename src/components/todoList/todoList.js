@@ -4,26 +4,30 @@ import './todoList.css';
 
 import TodoItem from '../todoItem';
 import AddTodo from '../addTodo';
+import { connect } from 'react-redux';
+import { getTodoListById } from '../../selectors';
+import { updateTodoList } from '../../actions';
 
-export default class TodoList extends React.Component {
+
+class TodoList extends React.Component {
   toggleIsDone(id) {
-    const { list, updateList } = this.props;
+    const { list } = this.props;
 
     let update = {
       todos: list.todos.map((todo) => (todo.id === id ? { ...todo, isDone: !todo.isDone } : todo)),
     };
 
-    updateList(list.id, update);
+    this.props.updateTodoList(list.id, { ...list, ...update });
   }
 
   addNewTodo(text) {
-    const { list, updateList } = this.props;
-    
+    const { list } = this.props;
+
     let update = {
-      todos: [...list.todos, {id: new Date().getTime(), text, isDone: false }]
+      todos: [...list.todos, { id: new Date().getTime(), text, isDone: false }]
     }
 
-    updateList(list.id, update);
+    this.props.updateTodoList(list.id, { ...list, ...update });
   }
 
   render() {
@@ -40,3 +44,12 @@ export default class TodoList extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  list: getTodoListById(props.match.params.id, state) || {}
+});
+const mapDispatchToProps = (dispatch) => ({
+  updateTodoList: (id, todoList) => dispatch(updateTodoList(id, todoList))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

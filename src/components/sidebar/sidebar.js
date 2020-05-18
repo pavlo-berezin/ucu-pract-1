@@ -4,6 +4,8 @@ import './sidebar.css';
 
 import { NavLink } from 'react-router-dom';
 import AddTodo from '../addTodo';
+import { connect } from 'react-redux';
+import { addTodoList } from '../../actions';
 
 const Sidebar = (props) => (
   <aside className='sidebar'>
@@ -18,4 +20,12 @@ const Sidebar = (props) => (
   </aside>
 );
 
-export default Sidebar;
+const mapStateToProps = (state) => ({
+  lists: state.todoLists,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onAdd: (todoList) => dispatch(addTodoList(todoList)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
