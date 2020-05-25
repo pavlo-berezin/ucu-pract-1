@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoList from '../todoList';
 import Sidebar from '../sidebar';
 
@@ -8,20 +8,19 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchTodos } from '../../actions';
 
-class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.fetchTodos();
-  }
+function Dashboard(props) {
+  useEffect(() => {
+    props.fetchTodos();
+  }, []);
 
-  render() {
-    return (
-      <main className='dashboard'>
-        <Sidebar></Sidebar>
-        <Route path='/list/:id' component={TodoList}></Route>
-      </main>
-    );
-  }
+  return (
+    <main className='dashboard'>
+      <Sidebar></Sidebar>
+      <Route path='/list/:id' component={TodoList}></Route>
+    </main>
+  );
 }
+
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTodos: () => dispatch(fetchTodos()),

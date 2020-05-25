@@ -1,38 +1,26 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 
-export default class AddTodo extends React.Component {
-  constructor(props) {
-    super(props);
+export default function AddTodo(props) {
+  const [todo, setTodo] = useState('');
+  const todoRef = useRef(null);
 
-    this.state = {
-      todo: ''
-    }
-
-    this.todoRef = React.createRef();
+  const handleChange = (event) => {
+    setTodo(event.target.value);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    this.props.onAdd(this.state.todo);
+    props.onAdd(todo);
 
-    this.setState({ todo: '' });
-    this.todoRef.current.focus();
+    setTodo('');
+    todoRef.current.focus();
   }
 
-  handleChange(e) {
-    this.setState({
-      todo: e.target.value
-    });
-  }
-
-
-  render() {
-    return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input ref={this.todoRef} placeholder="Add todo" value={this.state.todo} onChange={(e) => this.handleChange(e)}></input>
-        <input type="submit" value="+"></input>
-      </form>
-    )
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input ref={todoRef} placeholder="Add todo" value={todo} onChange={handleChange}></input>
+      <input type="submit" value="+"></input>
+    </form>
+  )
 }
